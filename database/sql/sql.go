@@ -404,7 +404,7 @@ type driverConn struct {
 	db        *DB
 	createdAt time.Time
 
-	sync.Mutex // guards following
+	sync.Mutex  // guards following
 	ci          driver.Conn
 	closed      bool
 	finalClosed bool // ci.Close has been called
@@ -466,7 +466,7 @@ func (dc *driverConn) prepareLocked(ctx context.Context, cg stmtConnGrabber, que
 // was returned to the pool. This unlocks the mutex.
 func (dc *driverConn) resetSession(ctx context.Context) {
 	defer dc.Unlock() // In case of panic.
-	if dc.closed { // Check if the database has been closed.
+	if dc.closed {    // Check if the database has been closed.
 		return
 	}
 	dc.lastErr = dc.ci.(driver.SessionResetter).ResetSession(ctx)
@@ -536,9 +536,9 @@ func (dc *driverConn) finalClose() error {
 // held during calls.
 type driverStmt struct {
 	sync.Locker // the *driverConn
-	si       driver.Stmt
-	closed   bool
-	closeErr error // return value of previous Close call
+	si          driver.Stmt
+	closed      bool
+	closeErr    error // return value of previous Close call
 }
 
 // Close ensures driver.Stmt is only closed once and always returns the same
@@ -3063,7 +3063,7 @@ type Result interface {
 
 type driverResult struct {
 	sync.Locker // the *driverConn
-	resi driver.Result
+	resi        driver.Result
 }
 
 func (dr driverResult) LastInsertId() (int64, error) {

@@ -6,9 +6,9 @@ package sql
 
 import (
 	"context"
-	"github.com/relloyd/go-sql/database/sql/driver"
 	"errors"
 	"fmt"
+	"github.com/relloyd/go-sql/database/sql/driver"
 	"math/rand"
 	"reflect"
 	"runtime"

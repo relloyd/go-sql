@@ -309,7 +309,7 @@ type Stmt interface {
 	Query(args []Value) (Rows, error)
 }
 
-// StmtBatchExec
+// StmtExecBatch
 type StmtExecBatch interface {
 	BindToBatchContext(ctx context.Context, position int, args []NamedValue) error
 	ExecBatchContext(ctx context.Context) (Result, error)

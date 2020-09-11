@@ -6,8 +6,8 @@ package sql
 
 import (
 	"context"
-	"github.com/relloyd/go-sql/database/sql/driver"
 	"errors"
+	"github.com/relloyd/go-sql/database/sql/driver"
 )
 
 func ctxDriverPrepare(ctx context.Context, ci driver.Conn, query string) (driver.Stmt, error) {

@@ -19,8 +19,8 @@ var someTime = time.Unix(123, 0)
 var answer int64 = 42
 
 type (
-	userDefined float64
-	userDefinedSlice []int
+	userDefined       float64
+	userDefinedSlice  []int
 	userDefinedString string
 )
 
